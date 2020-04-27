@@ -64,7 +64,10 @@ int main() {
             }
         }
 
-        //Change AIDLE to one of the 7 globally defined variables to change the animation.
+        /***********************************************************************************
+        Change AIDLE to one of the 7 globally defined variables to change the animation.   *
+        We need a position bool check to make sure the player's are on the left or right!  *
+        ************************************************************************************/
         p1animation.update(AIDLE, deltaTime, true);
         p2animation.update(AIDLE, deltaTime, false);
         
