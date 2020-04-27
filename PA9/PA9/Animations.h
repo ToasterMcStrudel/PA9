@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML\Graphics.hpp>
+#include <SFML\Audio.hpp>
 #include <iostream>
 #include <ctime>
 
@@ -33,7 +34,7 @@ public:
 
 	
 	void update(int row, float deltaTime, bool rightFace);
-	void updateBackground(int row, float deltaTime);
+	void update(int row, float deltaTime);
 	//Used to make the player rectangle____update later with player and controler class stuff. 
 	sf::IntRect playerRect;
 };

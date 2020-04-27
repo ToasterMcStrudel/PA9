@@ -3,7 +3,6 @@
 Animations::Animations(sf::Texture* texture, sf::Vector2u spriteCount, float animationSpeed)
 {
 	this->spriteCount = spriteCount;
-	
 	this->animationSpeed = animationSpeed;
 	totalTime = 0.0f;
 	currentSprite.x = 0;
@@ -78,10 +77,8 @@ void Animations::update(int row, float deltaTime, bool rightFace)//needs to be u
 	
 	playerRect.top = currentSprite.y * playerRect.height;
 
-	/************************************************
-	Makes the animation flip it's facing depending  *
-	on position of the players                      * 
-	*************************************************/
+	//Makes the animation flip it's facing depending  
+	//on position of the players.                      
 	if (rightFace) {
 		playerRect.left = currentSprite.x * playerRect.width;
 		playerRect.width = abs(playerRect.width);
@@ -92,7 +89,11 @@ void Animations::update(int row, float deltaTime, bool rightFace)//needs to be u
 	}
 }
 
-void Animations::updateBackground(int row, float deltaTime)
+/*****************************************************
+ This funtion is a overloaded function that updates  *
+ the animated background for the game.               *
+ *****************************************************/
+void Animations::update(int row, float deltaTime)
 {
 	currentSprite.y = row;
 	totalTime += deltaTime;

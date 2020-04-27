@@ -10,12 +10,13 @@ enough time to kill them.                                             *
 #include "Animations.h"
 
 
-
-
 int main() {
 
     sf::RenderWindow window(sf::VideoMode(1122, 600), "Cyborg vs BlockyMan!!", sf::Style::Close | sf::Style::Resize );
-    
+    sf::Music music;
+    if (!music.openFromFile("MainMusic.ogg")) {
+        cout << "NO MUSIC!" << endl;
+    }
     /*************************************************************************************************
     This makes the rectangle the Sprite shows up in. The native pixel size for the Sprites is (125,125),  *
     but by changing th e Vector2f() the image will grow to fit propotionally.                        *
@@ -23,7 +24,7 @@ int main() {
     sf::RectangleShape player1(sf::Vector2f(200.0f, 200.0f));
     sf::RectangleShape player2(sf::Vector2f(200.0f, 200.0f));
     sf::RectangleShape playerBackground(sf::Vector2f(1122, 600.0f));
-
+    music.play();
 
 
     //This changes the position of the Sprites
@@ -49,7 +50,7 @@ int main() {
     //Instantiates the Animation class, DO NOT CHANGE THE VECTOR2U HERE, and controls the animation speed. 
     Animations p1animation(&player1Texture, sf::Vector2u(7, 8), .12f);
     Animations p2animation(&player2Texture, sf::Vector2u(7, 8), .12f);
-    Animations backgroundAnimation(&background, sf::Vector2u(13, 1), 0.09f);
+    Animations backgroundAnimation(&background, sf::Vector2u(13, 1), 0.1f);
 
     //Sets up for the deltaTime to control smooth and even animations
     sf::Clock clock;
@@ -75,9 +76,9 @@ int main() {
         Change AIDLE to one of the 7 globally defined variables to change the animation.   *
         We need a position bool check to make sure the player's are on the left or right!  *
         ************************************************************************************/
-        backgroundAnimation.updateBackground(ABACKGROUND, deltaTime);
+        backgroundAnimation.update(ABACKGROUND, deltaTime);
         p1animation.update(APUNCH, deltaTime, true);
-        p2animation.update(AIDLE, deltaTime, false);
+        p2animation.update(ADEATH, deltaTime, false);
       
         
         //Assigns the correct animation to the player rectanble
