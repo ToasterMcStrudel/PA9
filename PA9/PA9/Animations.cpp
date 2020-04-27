@@ -34,49 +34,41 @@ void Animations::update(int row, float deltaTime, bool rightFace)//needs to be u
 		currentSprite.x++;
 		
 		if (row == ABACK) {
-
 			if (currentSprite.x >= 5) {
 				currentSprite.x = 0;
 			}
 		}
 		else if (row == ADEATH) {
-
 			if (currentSprite.x >= 7) {
 				currentSprite.x = 0;
 			}
 		}
 		else if (row == AFORWARD) {
-
 			if (currentSprite.x >= 4) {
 				currentSprite.x = 0;
 			}
 		}
 		else if (row == AHIT) {
-
 			if (currentSprite.x >= 4) {
 				currentSprite.x = 0;
 			}
 		}
 		else if (row == APUNCH) {
-
 			if (currentSprite.x >= 6) {
 				currentSprite.x = 0;
 			}
 		}
 		else if (row == AJUMP) {
-
 			if (currentSprite.x >= 5) {
 				currentSprite.x = 0;
 			}
 		}
 		else if (row == ABLOCK) {
-
 			if (currentSprite.x >= 1) {
 				currentSprite.x = 0;
 			}
 		}
 		else if (row == AIDLE) { //change to else later for static idle when a eventkey is not pressed. 
-
 			if (currentSprite.x >= 4) {
 				currentSprite.x = 0;
 			}
@@ -87,7 +79,7 @@ void Animations::update(int row, float deltaTime, bool rightFace)//needs to be u
 
 	/************************************************
 	Makes the animation flip it's facing depending  *
-	on position.                                    * 
+	on position of the players                      * 
 	*************************************************/
 	if (rightFace) {
 		playerRect.left = currentSprite.x * playerRect.width;

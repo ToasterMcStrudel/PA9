@@ -17,7 +17,7 @@ int main() {
     sf::RenderWindow window(sf::VideoMode(800, 600), "Cyborg vs BlockyMan!!", sf::Style::Close | sf::Style::Resize );
     
     /*************************************************************************************************
-    This make the rectangle the Sprite shows up in. The native pixels for the Sprites is (125,125),  *
+    This makes the rectangle the Sprite shows up in. The native pixel size for the Sprites is (125,125),  *
     but by changing th e Vector2f() the image will grow to fit propotionally.                        *
     **************************************************************************************************/
     sf::RectangleShape player1(sf::Vector2f(125.0f, 125.0f));
@@ -64,7 +64,7 @@ int main() {
             }
         }
 
-        //Change AIDLE to one of the 7 globally defined variable to change the animation.
+        //Change AIDLE to one of the 7 globally defined variables to change the animation.
         p1animation.update(AIDLE, deltaTime, true);
         p2animation.update(AIDLE, deltaTime, false);
         
