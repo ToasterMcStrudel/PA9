@@ -3,6 +3,7 @@
 Animations::Animations(sf::Texture* texture, sf::Vector2u spriteCount, float animationSpeed)
 {
 	this->spriteCount = spriteCount;
+	
 	this->animationSpeed = animationSpeed;
 	totalTime = 0.0f;
 	currentSprite.x = 0;
@@ -89,4 +90,23 @@ void Animations::update(int row, float deltaTime, bool rightFace)//needs to be u
 		playerRect.left = (currentSprite.x + 1) * abs(playerRect.width);
 		playerRect.width = -abs(playerRect.width);
 	}
+}
+
+void Animations::updateBackground(int row, float deltaTime)
+{
+	currentSprite.y = row;
+	totalTime += deltaTime;
+
+	if (totalTime >= animationSpeed) {
+		totalTime -= animationSpeed;
+		currentSprite.x++;
+
+		if (row == ABACKGROUND) {
+			if (currentSprite.x >= 13) {
+				currentSprite.x = 0;
+			}
+		}
+	}
+	playerRect.top = currentSprite.y * playerRect.height;
+	playerRect.left = currentSprite.x * playerRect.width;
 }

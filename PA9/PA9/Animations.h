@@ -12,6 +12,7 @@
 #define APUNCH 5
 #define AJUMP 6
 #define ABLOCK 7
+#define ABACKGROUND 0
 
 using namespace std;
 
@@ -32,7 +33,7 @@ public:
 
 	
 	void update(int row, float deltaTime, bool rightFace);
-
+	void updateBackground(int row, float deltaTime);
 	//Used to make the player rectangle____update later with player and controler class stuff. 
 	sf::IntRect playerRect;
 };

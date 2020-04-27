@@ -1,14 +1,2 @@
-﻿  Animations.cpp
-C:\Users\Ryan\source\repos\PA9\PA9\Animations.cpp(12,42): warning C4244: '=': conversion from 'float' to 'T', possible loss of data
-          with
-          [
-              T=int
-          ]
-C:\Users\Ryan\source\repos\PA9\PA9\Animations.cpp(13,43): warning C4244: '=': conversion from 'float' to 'T', possible loss of data
-          with
-          [
-              T=int
-          ]
-  main.cpp
-  Generating Code...
+﻿  main.cpp
   PA9.vcxproj -> C:\Users\Ryan\source\repos\PA9\Debug\PA9.exe
