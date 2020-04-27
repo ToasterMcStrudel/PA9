@@ -17,10 +17,13 @@ int main() {
     if (!music.openFromFile("MainMusic.ogg")) {
         cout << "NO MUSIC!" << endl;
     }
-    /*************************************************************************************************
+    /******************************************************************************************************
     This makes the rectangle the Sprite shows up in. The native pixel size for the Sprites is (125,125),  *
-    but by changing th e Vector2f() the image will grow to fit propotionally.                        *
-    **************************************************************************************************/
+    but by changing th e Vector2f() the image will grow to fit propotionally.                             *
+    I'm going to guess to make the hit box about (110, 200) pixels with all the animations, but increase  *
+    it to (200,200) pixels when punching. This is because all the animations are set farther back to      *
+    make room for the length of the punch.                                                                *
+    *******************************************************************************************************/
     sf::RectangleShape player1(sf::Vector2f(200.0f, 200.0f));
     sf::RectangleShape player2(sf::Vector2f(200.0f, 200.0f));
     sf::RectangleShape playerBackground(sf::Vector2f(1122, 600.0f));
