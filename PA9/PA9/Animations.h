@@ -16,6 +16,7 @@
 #define ABACKGROUND 0
 
 using namespace std;
+using namespace sf;
 
 class Animations
 {
@@ -33,8 +34,9 @@ public:
 	~Animations();
 
 	
-	void update(int row, float deltaTime, bool rightFace);
+	bool update(int row, float deltaTime, bool rightFace);
 	void update(int row, float deltaTime);
+	bool update(int row, bool rightFace, bool move);
 	//Used to make the player rectangle____update later with player and controler class stuff. 
 	sf::IntRect playerRect;
 };

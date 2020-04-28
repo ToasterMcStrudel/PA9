@@ -24,15 +24,17 @@ speed uniform across computers that vary in speed. rightFace is used   *
 to check a bool to make sure if a player is on the left or right side  *
 of the other and have the animation face the correct way.              *
 ************************************************************************/
-void Animations::update(int row, float deltaTime, bool rightFace)//needs to be updated with a interup for getting hit. maybe
+bool Animations::update(int row, float deltaTime, bool rightFace)//needs to be updated with a interup for getting hit. maybe
 {
+	//Animating only works with punch and jump to finish the animation with one keypress. 
+	bool animating = true;
 	currentSprite.y = row;
 	totalTime += deltaTime;
 
 	if (totalTime >= animationSpeed) {
 		totalTime -= animationSpeed;
 		currentSprite.x++;
-		
+
 		if (row == ABACK) {
 			if (currentSprite.x >= 5) {
 				currentSprite.x = 0;
@@ -56,15 +58,17 @@ void Animations::update(int row, float deltaTime, bool rightFace)//needs to be u
 		else if (row == APUNCH) {
 			if (currentSprite.x >= 6) {
 				currentSprite.x = 0;
+				animating = false;
 			}
 		}
 		else if (row == AJUMP) {
 			if (currentSprite.x >= 5) {
 				currentSprite.x = 0;
+				animating = false;
 			}
 		}
 		else if (row == ABLOCK) {
-			if (currentSprite.x >= 1) {
+			if (currentSprite.x >= 0) {
 				currentSprite.x = 0;
 			}
 		}
@@ -72,9 +76,9 @@ void Animations::update(int row, float deltaTime, bool rightFace)//needs to be u
 			if (currentSprite.x >= 4) {
 				currentSprite.x = 0;
 			}
-		}	
+		}
 	}
-	
+
 	playerRect.top = currentSprite.y * playerRect.height;
 
 	//Makes the animation flip it's facing depending  
@@ -87,6 +91,10 @@ void Animations::update(int row, float deltaTime, bool rightFace)//needs to be u
 		playerRect.left = (currentSprite.x + 1) * abs(playerRect.width);
 		playerRect.width = -abs(playerRect.width);
 	}
+
+	return animating;	//Sets whether the animation is done or not. True for done, false for not done.
+
+
 }
 
 /*****************************************************
