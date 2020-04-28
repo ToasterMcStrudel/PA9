@@ -26,10 +26,30 @@ public:
 	int getHP();
 	void setHP(int val);
 
+	//setter and getter blocks. sf::RectangleShape functions return the entire object, for use with collision functions.
+
+	//setters and getters for hitBox
 	sf::Vector2f getPosition();
 	void setPosition(sf::Vector2f newPos);
 	sf::Vector2f getDimensions();
 	void setDimensions(sf::Vector2f newSize);
+	sf::RectangleShape getBody();
+
+	//setters and getters for punchBox
+	sf::Vector2f getPunchPos();
+	void setPunchPos(sf::Vector2f newPos);
+	sf::Vector2f getPunchSize();
+	void setPunchSize(sf::Vector2f newSize);
+	sf::RectangleShape getPunch();
+
+	//setters and getters for blockBox
+	sf::Vector2f getBlockPos();
+	void setBlockPos(sf::Vector2f newPos);
+	sf::Vector2f getBlockSize();
+	void setBlockSize(sf::Vector2f newSize);
+	sf::RectangleShape getBlock();
+
+	//functions for actually generating the punch and block boxes would be dependant on the model's rig relative to its hitbox, so they're not being written until animation is implimented.
 };
 
 character::character(sf::Vector2f location, sf::Vector2f size)
@@ -49,6 +69,9 @@ void character::setHP(int val)
 	HP = val;
 	return;
 }
+
+
+//hitBox Functions
 
 sf::Vector2f character::getPosition()
 {
@@ -70,4 +93,67 @@ void character::setDimensions(sf::Vector2f newSize)
 {
 	hitBox.setSize(newSize);
 	return;
+}
+
+sf::RectangleShape character::getBody()
+{
+	return hitBox;
+}
+
+//punchBox Functions
+
+sf::Vector2f character::getPunchPos()
+{
+	return punchBox.getPosition();
+}
+
+void character::setPunchPos(sf::Vector2f newPos)
+{
+	punchBox.setPosition(newPos);
+	return;
+}
+
+sf::Vector2f character::getPunchSize()
+{
+	return punchBox.getSize();
+}
+
+void character::setPunchSize(sf::Vector2f newSize)
+{
+	punchBox.setSize(newSize);
+	return;
+}
+
+sf::RectangleShape character::getPunch()
+{
+	return punchBox;
+}
+
+//blockBox Functions
+
+sf::Vector2f character::getBlockPos()
+{
+	return blockBox.getPosition();
+}
+
+void character::setBlockPos(sf::Vector2f newPos)
+{
+	blockBox.setPosition(newPos);
+	return;
+}
+
+sf::Vector2f character::getBlockSize()
+{
+	return blockBox.getSize();
+}
+
+void character::setBlockSize(sf::Vector2f newSize)
+{
+	blockBox.setSize(newSize);
+	return;
+}
+
+sf::RectangleShape character::getBlock()
+{
+	return blockBox;
 }
