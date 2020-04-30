@@ -7,12 +7,18 @@ Description: This program lets players play a Mortal Kombat type      *
 game. This goal is to punch the other player's charactor in the face  *
 enough time to kill them.                                             *
 ***********************************************************************/
+//#include "Character.h"
 #include "Animations.h"
 
+//This is for changing the direction of the character jumping 
+bool goingUP = true;
+bool goingDOWN = false;
+bool goingUP2 = true;
+bool goingDOWN2 = false;
 
 int main() {
 
-    sf::RenderWindow window(sf::VideoMode(1122, 600), "Cyborg vs BlockyMan!!", sf::Style::Close | sf::Style::Resize);
+    sf::RenderWindow window(sf::VideoMode(1100, 600), "Cyborg vs BlockyMan!!", sf::Style::Close | sf::Style::Resize);
 
     /******************************************************************************************************
     This makes the rectangle the Sprite shows up in. The native pixel size for the Sprites is (125,125),  *
@@ -21,15 +27,15 @@ int main() {
     it to (200,200) pixels when punching. This is because all the animations are set farther back to      *
     make room for the length of the punch.                                                                *
     *******************************************************************************************************/
-    sf::RectangleShape player1(sf::Vector2f(200.0f, 200.0f));
-    sf::RectangleShape player2(sf::Vector2f(200.0f, 200.0f));
-    sf::RectangleShape playerBackground(sf::Vector2f(1122, 600.0f));
+    sf::RectangleShape player1(sf::Vector2f(200.0f, 200.0f)); //cyborg
+    sf::RectangleShape player2(sf::Vector2f(200.0f, 200.0f)); //blocky
+    sf::RectangleShape playerBackground(sf::Vector2f(1100, 600.0f));
 
 
 
     //This changes the position of the Sprites
-    player1.setPosition(300.0f, 400.0f);
-    player2.setPosition(400.0f, 400.0f);
+    player1.setPosition(450.0f, 400.0f);
+    player2.setPosition(450.0f, 400.0f);
     playerBackground.setPosition(0.0f, 0.0f);
 
     /**************************************************************************
@@ -90,13 +96,65 @@ int main() {
             When T is pressed finishJump1 becomes equal to true until the sprite
             reaches the final frame making finishJump1 equal false to stop the animation.
             */
+            cout << "P1Y: " << player1.getPosition().y << endl;
+            cout << "P2Y: " << player2.getPosition().y << endl;
+
+            if (goingUP) {
+                player1.setPosition(player1.getPosition().x, player1.getPosition().y - 1);
+                cout << "GOING UP\n";
+                if (player1.getPosition().y <= 200)
+                {
+                    goingUP = false;
+                    goingDOWN = true;
+                }
+            }
+
+            if (goingDOWN) {
+                player1.setPosition(player1.getPosition().x, player1.getPosition().y + 1);
+                cout << "GOING DOWN\n";
+                if (player1.getPosition().y >= 400)
+                {
+                    goingUP = true;
+                    goingDOWN = false;
+                }
+            }
+
             finishJump1 = p1animation.update(AJUMP, deltaTime, true);
         }
         else if (Keyboard::isKeyPressed(Keyboard::D)) {
             p1animation.update(AFORWARD, deltaTime, true);
+
+            if (player1.getPosition().x < WINDOWLENGTH - 150)
+            {
+                if (player1.getPosition().x == player2.getPosition().x && (player1.getPosition().y >= player2.getPosition().y - 50 && player1.getPosition().y <= player2.getPosition().y + 50))
+                if(testCollision(player1,player2,'/0',0))
+                {
+                    //Pushes other player
+                    player1.setPosition(player1.getPosition().x + .5, player1.getPosition().y);
+                    player2.setPosition(player2.getPosition().x + .5, player2.getPosition().y);
+                    cout << "P1x: " << player1.getPosition().x << endl;
+                    cout << "P2x: " << player2.getPosition().x << endl;
+                }
+                if (!testCollision(player1, player2, '/0', 0)) {
+                    player1.setPosition(player1.getPosition().x + .75, player1.getPosition().y);
+                    cout << player1.getPosition().x << endl;
+                }
+            }
         }
         else if (Keyboard::isKeyPressed(Keyboard::A)) {
             p1animation.update(ABACK, deltaTime, true);
+            if (player1.getPosition().x > 0)
+            {
+                //if (testCollision(player1, player2, '/0', 0)) {
+                //    //Pushes other player
+                //    player1.setPosition(player1.getPosition().x - .5, player1.getPosition().y);
+                //    player2.setPosition(player2.getPosition().x - .5, player2.getPosition().y);
+                //}
+                if (!testCollision(player1, player2, '/0', 0)) {
+                    player1.setPosition(player1.getPosition().x - .75, player1.getPosition().y);
+                    cout << player1.getPosition().x << endl;
+                }
+            }
         }
         else {
             p1animation.update(AIDLE, deltaTime, true);
@@ -106,14 +164,14 @@ int main() {
         This controls BlockyMan! The punch and jump animation still needs work though      *
         We need a position bool check to make sure the players' are on the left or right!  *
         ************************************************************************************/
-        if (Keyboard::isKeyPressed(Keyboard::Numpad1) || finishPunch2) {
+        if (Keyboard::isKeyPressed(Keyboard::Period) || finishPunch2) {
             /*
             When T is pressed finishPunch2 becomes equal to true until the sprite
             reaches the final frame making finishPunch2 equal false to stop the animation.
             */
             finishPunch2 = p2animation.update(APUNCH, deltaTime, false);
         }
-        else  if (Keyboard::isKeyPressed(Keyboard::Numpad2)) {
+        else  if (Keyboard::isKeyPressed(Keyboard::Slash)) {
             p2animation.update(ABLOCK, deltaTime, false);
         }
         else if (Keyboard::isKeyPressed(Keyboard::Up) || finishJump2) {
@@ -121,13 +179,43 @@ int main() {
             When T is pressed finishJump2 becomes equal to true until the sprite
             reaches the final frame making finishJump2 equal false to stop the animation.
             */
+            cout << "P1Y: " << player1.getPosition().y << endl;
+            cout << "P2Y: " << player2.getPosition().y << endl;
+
+            if (goingUP2) {
+                player2.setPosition(player2.getPosition().x, player2.getPosition().y - 1);
+                cout << "GOING UP\n";
+                if (player2.getPosition().y <= 200)
+                {
+                    goingUP2 = false;
+                    goingDOWN2 = true;
+                }
+            }
+
+            if (goingDOWN2) {
+                player2.setPosition(player2.getPosition().x, player2.getPosition().y + 1);
+                cout << "GOING DOWN\n";
+                if (player2.getPosition().y >= 400)
+                {
+                    goingUP2 = true;
+                    goingDOWN2 = false;
+                }
+            }
             finishJump2 = p2animation.update(AJUMP, deltaTime, false);
         }
         else if (Keyboard::isKeyPressed(Keyboard::Left)) {
             p2animation.update(AFORWARD, deltaTime, false);
+            if (player2.getPosition().x > -100)
+            {
+                player2.setPosition(player2.getPosition().x - .75, player2.getPosition().y);
+            }
         }
         else if (Keyboard::isKeyPressed(Keyboard::Right)) {
             p2animation.update(ABACK, deltaTime, false);
+            if (player2.getPosition().x < WINDOWLENGTH - 200)
+            {
+                player2.setPosition(player2.getPosition().x + .75, player2.getPosition().y);
+            }
         }
         else {
             p2animation.update(AIDLE, deltaTime, false);

@@ -1,24 +1,11 @@
 #pragma once
+#include "Character.h"
 #include <SFML\Graphics.hpp>
 #include <SFML\Audio.hpp>
 #include <iostream>
 #include <ctime>
 
-
-#define AIDLE 0
-#define ABACK 1
-#define ADEATH 2
-#define AFORWARD 3
-#define AHIT 4
-#define APUNCH 5
-#define AJUMP 6
-#define ABLOCK 7
-#define ABACKGROUND 0
-
-using namespace std;
-using namespace sf;
-
-class Animations
+class Animations : public Character
 {
 private:
 
@@ -33,11 +20,12 @@ public:
 	Animations(sf::Texture* texture, sf::Vector2u spriteCount, float animationSpeed);
 	~Animations();
 
-	
+
 	bool update(int row, float deltaTime, bool rightFace);
 	void update(int row, float deltaTime);
-	bool update(int row, bool rightFace, bool move);
+
 	//Used to make the player rectangle____update later with player and controler class stuff. 
 	sf::IntRect playerRect;
 };
 
+bool testCollision(sf::RectangleShape shape1, sf::RectangleShape shape2, char dir, int dist);
