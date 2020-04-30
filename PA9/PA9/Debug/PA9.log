@@ -1,6 +1,6 @@
 ﻿  main.cpp
-C:\Users\Ryan\source\repos\PA9\PA9\main.cpp(131,65): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\Ryan\source\repos\PA9\PA9\main.cpp(142,65): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\Ryan\source\repos\PA9\PA9\main.cpp(197,61): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\Ryan\source\repos\PA9\PA9\main.cpp(204,61): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-  PA9.vcxproj -> C:\Users\Ryan\source\repos\PA9\Debug\PA9.exe
+C:\Users\hanna\source\repos\PA9\PA9\main.cpp(168,73): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\hanna\source\repos\PA9\PA9\main.cpp(178,73): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\hanna\source\repos\PA9\PA9\main.cpp(234,73): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\hanna\source\repos\PA9\PA9\main.cpp(243,73): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  PA9.vcxproj -> C:\Users\hanna\source\repos\PA9\Debug\PA9.exe

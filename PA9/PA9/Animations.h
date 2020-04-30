@@ -28,4 +28,4 @@ public:
 	sf::IntRect playerRect;
 };
 
-bool testCollision(sf::RectangleShape shape1, sf::RectangleShape shape2, char dir, int dist);
+//bool testCollision(sf::RectangleShape shape1, sf::RectangleShape shape2, char dir, int dist);
