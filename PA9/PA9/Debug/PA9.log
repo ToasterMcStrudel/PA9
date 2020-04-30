@@ -1,27 +1,6 @@
-﻿  Animations.cpp
-C:\Users\Ryan\source\repos\PA9\PA9\Animations.cpp(12,42): warning C4244: '=': conversion from 'float' to 'T', possible loss of data
-          with
-          [
-              T=int
-          ]
-C:\Users\Ryan\source\repos\PA9\PA9\Animations.cpp(13,43): warning C4244: '=': conversion from 'float' to 'T', possible loss of data
-          with
-          [
-              T=int
-          ]
-  Character.cpp
-  main.cpp
-C:\Users\Ryan\source\repos\PA9\PA9\main.cpp(130,19): warning C4305: 'argument': truncation from 'int' to 'char'
-C:\Users\Ryan\source\repos\PA9\PA9\main.cpp(130,50): warning C4309: 'argument': truncation of constant value
-C:\Users\Ryan\source\repos\PA9\PA9\main.cpp(133,65): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\Ryan\source\repos\PA9\PA9\main.cpp(134,65): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\Ryan\source\repos\PA9\PA9\main.cpp(138,20): warning C4305: 'argument': truncation from 'int' to 'char'
-C:\Users\Ryan\source\repos\PA9\PA9\main.cpp(138,54): warning C4309: 'argument': truncation of constant value
-C:\Users\Ryan\source\repos\PA9\PA9\main.cpp(139,65): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\Ryan\source\repos\PA9\PA9\main.cpp(153,20): warning C4305: 'argument': truncation from 'int' to 'char'
-C:\Users\Ryan\source\repos\PA9\PA9\main.cpp(153,54): warning C4309: 'argument': truncation of constant value
-C:\Users\Ryan\source\repos\PA9\PA9\main.cpp(154,65): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\Ryan\source\repos\PA9\PA9\main.cpp(210,61): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\Ryan\source\repos\PA9\PA9\main.cpp(217,61): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-  Generating Code...
+﻿  main.cpp
+C:\Users\Ryan\source\repos\PA9\PA9\main.cpp(131,65): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Ryan\source\repos\PA9\PA9\main.cpp(142,65): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Ryan\source\repos\PA9\PA9\main.cpp(197,61): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Ryan\source\repos\PA9\PA9\main.cpp(204,61): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   PA9.vcxproj -> C:\Users\Ryan\source\repos\PA9\Debug\PA9.exe

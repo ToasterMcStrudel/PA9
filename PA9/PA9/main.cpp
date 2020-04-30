@@ -99,7 +99,7 @@ int main() {
             cout << "P1Y: " << player1.getPosition().y << endl;
             cout << "P2Y: " << player2.getPosition().y << endl;
 
-            if (goingUP) {
+           /* if (goingUP) {
                 player1.setPosition(player1.getPosition().x, player1.getPosition().y - 1);
                 cout << "GOING UP\n";
                 if (player1.getPosition().y <= 200)
@@ -119,40 +119,27 @@ int main() {
                 }
             }
 
-            finishJump1 = p1animation.update(AJUMP, deltaTime, true);
+            finishJump1 = p1animation.update(AJUMP, deltaTime, true);*/
         }
         else if (Keyboard::isKeyPressed(Keyboard::D)) {
             p1animation.update(AFORWARD, deltaTime, true);
 
             if (player1.getPosition().x < WINDOWLENGTH - 150)
             {
-                if (player1.getPosition().x == player2.getPosition().x && (player1.getPosition().y >= player2.getPosition().y - 50 && player1.getPosition().y <= player2.getPosition().y + 50))
-                if(testCollision(player1,player2,'/0',0))
+                if (player1.getPosition().x < WINDOWLENGTH)
                 {
-                    //Pushes other player
-                    player1.setPosition(player1.getPosition().x + .5, player1.getPosition().y);
-                    player2.setPosition(player2.getPosition().x + .5, player2.getPosition().y);
-                    cout << "P1x: " << player1.getPosition().x << endl;
-                    cout << "P2x: " << player2.getPosition().x << endl;
-                }
-                if (!testCollision(player1, player2, '/0', 0)) {
                     player1.setPosition(player1.getPosition().x + .75, player1.getPosition().y);
-                    cout << player1.getPosition().x << endl;
                 }
+                
             }
         }
         else if (Keyboard::isKeyPressed(Keyboard::A)) {
             p1animation.update(ABACK, deltaTime, true);
             if (player1.getPosition().x > 0)
             {
-                //if (testCollision(player1, player2, '/0', 0)) {
-                //    //Pushes other player
-                //    player1.setPosition(player1.getPosition().x - .5, player1.getPosition().y);
-                //    player2.setPosition(player2.getPosition().x - .5, player2.getPosition().y);
-                //}
-                if (!testCollision(player1, player2, '/0', 0)) {
+                if (player1.getPosition().x > -100)
+                {
                     player1.setPosition(player1.getPosition().x - .75, player1.getPosition().y);
-                    cout << player1.getPosition().x << endl;
                 }
             }
         }
@@ -182,7 +169,7 @@ int main() {
             cout << "P1Y: " << player1.getPosition().y << endl;
             cout << "P2Y: " << player2.getPosition().y << endl;
 
-            if (goingUP2) {
+            /*if (goingUP2) {
                 player2.setPosition(player2.getPosition().x, player2.getPosition().y - 1);
                 cout << "GOING UP\n";
                 if (player2.getPosition().y <= 200)
@@ -200,8 +187,8 @@ int main() {
                     goingUP2 = true;
                     goingDOWN2 = false;
                 }
-            }
-            finishJump2 = p2animation.update(AJUMP, deltaTime, false);
+            }*/
+            //finishJump2 = p2animation.update(AJUMP, deltaTime, false);
         }
         else if (Keyboard::isKeyPressed(Keyboard::Left)) {
             p2animation.update(AFORWARD, deltaTime, false);
