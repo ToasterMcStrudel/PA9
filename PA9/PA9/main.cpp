@@ -186,24 +186,7 @@ int main() {
 
 				}
 				else if (Keyboard::isKeyPressed(Keyboard::T) || finishPunch1) {
-					system("cls");
 					p1animation.removeBlock();
-					//Hannah Brickwood.///////////////////////////////////////////////////////////////////
-					//////////////////////////////////////////////////////////////////////////////////////
-					ss.clear();
-					ss2.clear();
-					ss << p1animation.getHP();
-					ss2 << p2animation.getHP();
-					ss >> s1;
-					ss2 >> s2;
-					string hpstring = "Cyborg's Health: ";
-					hpstring += s1;
-					hpstring += "                                                                                                                                                             Blockyman's  Heatlh: ";
-					hpstring += s2;
-					cout << hpstring << endl;
-					health.setString(hpstring);
-					//////////////////////////////////////////////////////////////////////////////////////
-					//////////////////////////////////////////////////////////////////////////////////////
 					/**********************************************************************************
 					When T is pressed finishedPunch1 becomes equal to true until the sprite           *
 					reaches the final frame making finishedPunch1 equal false to stop the animation.  *
@@ -213,6 +196,23 @@ int main() {
 					if (!finishPunch1) {
 						hit1 = false;
 						p1animation.removePunch();
+						system("cls");
+						//Hannah Brickwood.///////////////////////////////////////////////////////////////////
+						//////////////////////////////////////////////////////////////////////////////////////
+						ss.clear();
+						ss2.clear();
+						ss << p1animation.getHP();
+						ss2 << p2animation.getHP();
+						ss >> s1;
+						ss2 >> s2;
+						string hpstring = "Cyborg's Health: ";
+						hpstring += s1;
+						hpstring += "                                                                                                                                                             Blockyman's  Heatlh: ";
+						hpstring += s2;
+						cout << hpstring << endl;
+						health.setString(hpstring);
+						//////////////////////////////////////////////////////////////////////////////////////
+						//////////////////////////////////////////////////////////////////////////////////////
 					}
 				}
 				else  if (Keyboard::isKeyPressed(Keyboard::Y)) {
@@ -222,6 +222,7 @@ int main() {
 				}
 				else if (hit2 || finishHit1) {
 					finishHit1 = !p1animation.update(AHIT, deltaTime, true);
+					p1animation.removeBlock();
 
 				}
 				else if (Keyboard::isKeyPressed(Keyboard::S) || finishJump1) {
@@ -267,23 +268,7 @@ int main() {
 					finishDeath2 = !p2animation.update(ADEATH, deltaTime, false);
 				}
 				else if (Keyboard::isKeyPressed(Keyboard::Period) || finishPunch2) {
-					system("cls");
-					//Hannah Brickwood.///////////////////////////////////////////////////////////////////
-					//////////////////////////////////////////////////////////////////////////////////////
-					ss.clear();
-					ss2.clear();
-					ss << p1animation.getHP();
-					ss2 << p2animation.getHP();
-					ss >> s1;
-					ss2 >> s2;
-					string hpstring = "Cyborg's Health: ";
-					hpstring += s1;
-					hpstring += "                                                                                                                                                             Blockyman's  Heatlh: ";
-					hpstring += s2;
-					cout << hpstring << endl;
-					health.setString(hpstring);
-					//////////////////////////////////////////////////////////////////////////////////////
-					//////////////////////////////////////////////////////////////////////////////////////
+					
 					/**********************************************************************************
 					When . is pressed finishedPunch2 becomes equal to true until the sprite           *
 					reaches the final frame making finishedPunch2 equal false to stop the animation.  *
@@ -293,6 +278,23 @@ int main() {
 					if (!finishPunch2) {
 						hit2 = false;
 						p2animation.removePunch();
+						system("cls");
+						//Hannah Brickwood.///////////////////////////////////////////////////////////////////
+						//////////////////////////////////////////////////////////////////////////////////////
+						ss.clear();
+						ss2.clear();
+						ss << p1animation.getHP();
+						ss2 << p2animation.getHP();
+						ss >> s1;
+						ss2 >> s2;
+						string hpstring = "Cyborg's Health: ";
+						hpstring += s1;
+						hpstring += "                                                                                                                                                             Blockyman's  Heatlh: ";
+						hpstring += s2;
+						cout << hpstring << endl;
+						health.setString(hpstring);
+						//////////////////////////////////////////////////////////////////////////////////////
+						//////////////////////////////////////////////////////////////////////////////////////
 					}
 				}
 				else  if (Keyboard::isKeyPressed(Keyboard::Slash)) {
@@ -301,8 +303,8 @@ int main() {
 					p2animation.removePunch();
 				}
 				else if (hit1 || finishHit2) {
-
 					finishHit2 = !p2animation.update(AHIT, deltaTime, false);
+					p2animation.removeBlock();
 				}
 				else if (Keyboard::isKeyPressed(Keyboard::Down) || finishJump2) {
 					/**************************************************************
