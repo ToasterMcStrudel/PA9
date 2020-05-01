@@ -1,9 +1,27 @@
 #pragma once
+/*******************************************************************
+Everything in the Animations.cpp, Animations.h, and Sprite sheets  *
+was coded and created by Ryan Ortuno                               *
+********************************************************************/
 #include "Character.h"
 #include <SFML\Graphics.hpp>
 #include <SFML\Audio.hpp>
 #include <iostream>
 #include <ctime>
+#include <string>
+#include <sstream>
+
+#define AIDLE 0
+#define ABACK 1
+#define ADEATH 2
+#define AFORWARD 3
+#define AHIT 4
+#define APUNCH 5
+#define AJUMP 6
+#define ABLOCK 7
+#define ABACKGROUND 0
+#define BLOCKYWIN 0
+#define CYBORGWIN 1
 
 class Animations : public Character
 {
@@ -28,4 +46,4 @@ public:
 	sf::IntRect playerRect;
 };
 
-bool testCollision(sf::RectangleShape shape1, sf::RectangleShape shape2, char dir, int dist);
+void testFunctions();
